@@ -174,6 +174,7 @@ namespace QNDXXBot
         public partial class PrivateMessageHandler : ICommandHandler<PrivateMessageHandler>
         {
             [Matchers("增加ID")]
+            [RequireAdmin]
             string AddTargetID()
             {
                 Config.Instance.CurrentTaskID++;
@@ -188,6 +189,7 @@ namespace QNDXXBot
                 return Config.Instance.CurrentTaskID.ToString();
             }
 
+            [RequireAdmin]
             [Matchers("导出全部学生")]
             string DumpStudents()
             {
@@ -275,6 +277,7 @@ namespace QNDXXBot
                 return "下一张上传的图片将会被上传..";
             }
 
+            [RequireAdmin]
             [Matchers("校验学号")]
             string FindNotAdded()
             {
