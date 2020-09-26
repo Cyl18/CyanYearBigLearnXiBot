@@ -37,8 +37,8 @@ namespace QNDXXBot
                 PreRegisteredStudents.Add(new Student(null, id.ToInt(), stdid, name));
             }
 
-            var options = new MiraiHttpSessionOptions("127.0.0.1", 8080, "INITKEY7d0dck9h");
-            var qq = 3320645904;
+            var options = new MiraiHttpSessionOptions("127.0.0.1", 8080, Config.Instance.AuthCode);
+            var qq = Config.Instance.QQ;
             mirai = new MiraiHttpSession();
 
             await mirai.ConnectAsync(options, qq);
@@ -329,6 +329,8 @@ namespace QNDXXBot
         public List<Student> Students = new List<Student>();
         public List<string> SentImageHint = new List<string>();
         public int CurrentTaskID = 0;
+        public long QQ = 0;
+        public string AuthCode = "";
 
     }
 
